@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 const s3 = new AWS.S3();
-const ylt = require('..');
+const ylt = require('yellowlabtools');
 
 // noinspection JSUnusedLocalSymbols
 async function runner({id, url, options = {}}, context) {
