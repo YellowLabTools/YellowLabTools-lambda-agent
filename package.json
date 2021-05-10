@@ -1,0 +1,23 @@
+{
+  "name": "yellowlabtools-lambda-agent",
+  "version": "1.0.0",
+  "description": "The AWS Lambda testing agent that's in use on https://yellowlab.tools",
+  "main": "lambda.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YellowLabTools/YellowLabTools-lambda-agent.git"
+  },
+  "author": "Gaël Métais & Olivier Hoareau",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/YellowLabTools/YellowLabTools-lambda-agent/issues"
+  },
+  "homepage": "https://github.com/YellowLabTools/YellowLabTools-lambda-agent#readme",
+  "dependencies": {
+    "aws-sdk": "2.904.0",
+    "yellowlabtools": "2.1.0"
+  }
+}
