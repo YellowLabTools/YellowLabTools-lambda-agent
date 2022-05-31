@@ -3,7 +3,7 @@ const s3 = new AWS.S3();
 const ylt = require('yellowlabtools');
 
 // noinspection JSUnusedLocalSymbols
-async function runner({id, url, options = {}}, context) {
+async function runner({id, url, options = {}, acl}, context) {
     console.log(`Processing run #${id} on ${url}`);
     
     // AWS S3 bucket and path
@@ -11,7 +11,7 @@ async function runner({id, url, options = {}}, context) {
     const keyPrefix = `results/${id}`;
 
     // Function that can save any file on S3 (JSON, screenshot,...)
-    const saveFile = async (path, content) => s3.putObject({Bucket: bucket, Key: `${keyPrefix}/${path}`, Body: content})
+    const saveFile = async (path, content, contentType = undefined) => s3.putObject({Bucket: bucket, Key: `${keyPrefix}/${path}`, Body: content, ...(!!contentType ? {ContentType: contentType} : {}), ...(!!acl ? {ACL: acl} : {})})
         .promise();
     
     // Let's launch ylt
@@ -21,7 +21,7 @@ async function runner({id, url, options = {}}, context) {
         console.log(`Run succeeded`);
 
         data.runId = id;
-        await saveFile('results.json', JSON.stringify(data));
+        await saveFile('results.json', JSON.stringify(data), 'application/json');
 
         return {
             status: 'processed',
