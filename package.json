@@ -1,6 +1,6 @@
 {
   "name": "yellowlabtools-lambda-agent",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "The AWS Lambda testing agent that's in use on https://yellowlab.tools",
   "main": "lambda.js",
   "scripts": {
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/YellowLabTools/YellowLabTools-lambda-agent#readme",
   "dependencies": {
-    "aws-sdk": "2.904.0",
-    "yellowlabtools": "2.1.0"
+    "aws-sdk": "^2.1488.0",
+    "yellowlabtools": "3.0.1"
   }
 }
